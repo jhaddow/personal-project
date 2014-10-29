@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-node_modules
-=======
+
 # Logs
 logs
 *.log
@@ -29,4 +27,4 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
->>>>>>> c46e63706389d4c551b58e89858401ea86c18f6e
+
