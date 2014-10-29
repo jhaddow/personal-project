@@ -1,0 +1,12 @@
+
+<img ng-src={{user.photos[0].value}}>
+<ul>
+	<li ng-repeat = "list in lists" ng-click="getTweets(list.id)">
+	{{list.name}}
+	</li>
+</ul>
+
+
+<div ng-repeat="tweet in tweets">
+	{{tweet.text}}
+</div>

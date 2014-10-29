@@ -1,0 +1,24 @@
+{
+  "name": "personal-project",
+  "version": "1.0.0",
+  "description": "View Tweets from Twitter Lists",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Twitter",
+    "Lists"
+  ],
+  "author": "Jess Haddow",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.9.1",
+    "express": "^4.10.0",
+    "express-session": "^1.9.1",
+    "passport": "^0.2.1",
+    "passport-twitter": "^1.0.2",
+    "request": "^2.47.0",
+    "twit": "^1.1.18"
+  }
+}
