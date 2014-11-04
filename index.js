@@ -25,7 +25,7 @@ var requireAuth = function(req, res, next) {
         return res.status(401).end();
     }
     return next();
-}
+};
 
 //Set tokens for passport session
 passport.use(auth.strategy);
@@ -46,9 +46,10 @@ app.get('/api/current-user', requireAuth, auth.currentUser);
 
 //Endpoints for getting lists and tweets
 app.get('/api/lists', requireAuth, twitCtrl.getLists);
-app.get('/api/list-tweets/:id', requireAuth, twitCtrl.getListTweets);
+app.get('/api/list-tweets/:list_id/:since_id', requireAuth, twitCtrl.getListTweets);
+app.get('/api/list-tweets/:list_id', requireAuth, twitCtrl.getListTweets);
 
 
 app.listen(9901, function() {
     console.log('Listening on port 9901');
-})
+});

@@ -1,4 +1,4 @@
-var app = angular.module('twitterListViewer', ['ngRoute']);
+var app = angular.module('twitterListViewer', ['ngRoute', 'tweetDirective']);
 app.config(function($routeProvider, $httpProvider){
 	$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
     $httpProvider.interceptors.push('myHttpInterceptor');
