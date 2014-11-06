@@ -50,6 +50,6 @@ app.get('/api/list-tweets/:list_id/:since_id', requireAuth, twitCtrl.getListTwee
 app.get('/api/list-tweets/:list_id', requireAuth, twitCtrl.getListTweets);
 
 
-app.listen(9901, function() {
-    console.log('Listening on port 9901');
+app.listen(80, function() {
+    console.log('Listening on port 80');
 });

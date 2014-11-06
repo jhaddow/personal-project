@@ -3,7 +3,7 @@
 
     angular
         .module('tweetDirective', ['ngSanitize'])
-	    .directive('tweetView', function renderTweet($sanitize) {
+	    .directive('tweetView', function renderTweet() {
 	        return {
 	            restrict: 'EA',
 	            templateUrl: "/app/js/directives/tweetTemplate.html",
@@ -11,10 +11,19 @@
 	                tweetObj: "="
 	            },
 
-	            link: function tweetFunction(scope, element, attr) {
+	            link: TweetLink,
+	            controller: TweetCtrl,
+	            // controllerAs: 'tweetCtrl'
+	        };
+
+	        function TweetLink(scope, element, attr) {
 	                console.log(scope.tweetObj);
 	                scope.timeString = createTimeString();
 	                scope.tweetText = renderLinks(scope.tweetObj.text);
+	                scope.retweet_count = scope.tweetObj.retweet_count || '';
+	                scope.favorite_count = scope.tweetObj.favorite_count || '';
+	                scope.retweeted = scope.tweetObj.retweeted;
+	                scope.favorited = scope.tweetObj.favorited;
 
 	                function createTimeString() {
 	                        var timeLapse = Date.now() - Date.parse(scope.tweetObj.created_at);
@@ -23,7 +32,6 @@
 	                        var hours = Math.floor(timeLapse / (1000 * 60 * 60));
 	                        var mins = Math.floor(timeLapse / (1000 * 60));
 	                        var seconds = Math.floor(timeLapse / (1000));
-
 
 	                        if (hours > 0)
 	                            return hours + 'h';
@@ -45,6 +53,10 @@
 	                	return arr.join(' ');
 	                }
 	            }
-	        };
+
+	            function TweetCtrl(ListService) {
+	            	var vm = this;
+
+	            }
     	});
 })();
