@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" ng-app = 'twitterListViewer'>
-<head>
-	<meta charset="UTF-8">
-	<title>Twitter List Viewer</title>
-</head>
-<body>
+<html lang="en" ng-app='twitterListViewer'>
 	
-	<ng-view></ng-view>
+<head>
+    <meta charset="UTF-8">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Twitter List Viewer</title>
+</head>
 
-	<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.min.js"></script>
-	<script src="/app/js/app.js"></script>
-	<script src="/app/js/controllers/listCtrl.js"></script>
-	<script src="/app/js/services/listService.js"></script>
-	<script src="/app/js/directives/tweetDirective.js"></script>
+<body>
+
+    <ng-view></ng-view>
+	<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular-sanitize.min.js"></script>
+    <script src="/app/js/app.js"></script>
+    <script src="/app/js/controllers/listCtrl.js"></script>
+    <script src="/app/js/services/listService.js"></script>
+    <script src="/app/js/directives/tweetDirective.js"></script>
 </body>
+
 </html>

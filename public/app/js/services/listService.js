@@ -1,38 +1,44 @@
-var app = angular.module('twitterListViewer');
+(function() {
+	"use-strict";
+    angular
+	    .module('twitterListViewer')
+	    .service('ListService', function ListService($http, $q) {
+	        this.getLists = getLists;
+	        this.getTweets = getTweets;
+	        this.currentUser = currentUser;
 
-app.service('listService', function($http, $q){
+	        function getLists() {
+	            var deferred = $q.defer();
+	            $http.get('/api/lists')
+	                .then(function(response) {
+	                    deferred.resolve(response.data);
+	                });
 
-	this.currentUser = function(){
-		var deferred = $q.defer();
-		$http.get('/api/current-user')
-			.then(function(response){
-				
-				deferred.resolve(response.data);
-			});
+	            return deferred.promise;
+	        }
 
-		return deferred.promise;
-	};
+	        function getTweets(list_id, since_id) {
+	            var deferred = $q.defer();
+	            var endpoint = 'api/list-tweets/' + list_id;
+	            if (since_id) {
+	                endpoint = endpoint + '/' + since_id;
+	            }
+	            $http.get(endpoint)
+	                .then(function(response) {
+	                    deferred.resolve(response.data);
+	                });
+	            return deferred.promise;
+	        }
 
-	this.getLists = function() {
-		var deferred = $q.defer();
-		$http.get('/api/lists')
-			.then(function(response){
-				deferred.resolve(response.data);
-			});
+	        function currentUser() {
+	            var deferred = $q.defer();
+	            $http.get('/api/current-user')
+	                .then(function(response) {
 
-		return deferred.promise;
-	};
+	                    deferred.resolve(response.data);
+	                });
 
-	this.getTweets = function(list_id, since_id){
-		var deferred = $q.defer();
-		var endpoint = 'api/list-tweets/' + list_id;
-		if(since_id){
-			endpoint = endpoint + '/' + since_id;
-		}
-		$http.get(endpoint)
-			.then(function(response){
-				deferred.resolve(response.data);
-			});
-		return deferred.promise;
-	};
-});
+	            return deferred.promise;
+	        }
+	    });
+})();

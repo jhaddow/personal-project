@@ -1,5 +1,17 @@
-<div>
+<style>
+	.tweet-box {
+		border: 1px solid black;
+	}
+	
+</style>
+
+<div class="tweet-box">
 	<p>{{tweetObj.user.name}} @{{tweetObj.user.screen_name}} - {{timeString}}</p>
-	<p>{{tweetObj.text}}</p>
+	<p class="tweet-text" ng-bind-html="tweetText"></p>
+	<div>
+		<span class="fa fa-reply"></span>
+		<span class="fa fa-retweet"></span>
+		<span class="fa fa-star"></span>
+	</div>
 	
 </div>
