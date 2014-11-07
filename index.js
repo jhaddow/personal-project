@@ -11,7 +11,7 @@ var express = require('express'),
 //middleware for all endpoints
 var app = express();
 app.use(session({
-    secret: '80087355',
+    secret: process.env.EXPRESS_SECRET || '80087355',
     resave: true,
     saveUninitialized: true
 }));

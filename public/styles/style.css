@@ -95,3 +95,8 @@ body {
 .clicked {
     color: hsl(36, 100%, 60%);
 }
+#scroll-top{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}

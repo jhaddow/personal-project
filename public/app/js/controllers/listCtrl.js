@@ -2,25 +2,16 @@
     "use-strict";
     angular
         .module('twitterListViewer')
-        .controller('ListCtrl', function ListCtrl(user, ListService) {
+        .controller('ListCtrl', function ListCtrl(user, lists, ListService) {
             var vm = this;
             vm.user = user;
+            vm.lists = lists;
             vm.listId = '';
             vm.tweets = [];
             vm.getTweets = getTweets;
             vm.getTweetsByMaxId = getTweetsByMaxId;
-            vm.POS = POS;
-
            
-            getLists();
-            function getLists() {
-                return ListService.getLists()
-                    .then(function(data) {
-                        vm.lists = data;
-                        return vm.lists;
-                    });
-            }
-
+           
             function getTweets(list_id, since_id) {
                 ListService.getTweets(list_id, since_id)
                     .then(function(data) {
@@ -43,11 +34,6 @@
                         });
                 }
             }
-
-            function POS(){
-                alert("HELLO");
-            }
-
 
             setInterval(function() {
                 if (vm.listId) {

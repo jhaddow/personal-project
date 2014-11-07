@@ -1,7 +1,7 @@
 (function(){
 	"use-strict";
 	angular
-	    .module('twitterListViewer', ['ngRoute', 'tweetDirective', 'waypointDirective'])
+	    .module('twitterListViewer', ['ngRoute', 'tweetDirective', 'waypointDirective', 'scrollToTop'])
 	    .config(function($routeProvider, $httpProvider) {
 	        $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 	        $httpProvider.interceptors.push('myHttpInterceptor');
@@ -16,6 +16,9 @@
 	            resolve: {
 	                user: function(ListService) {
 	                    return ListService.currentUser();
+	                },
+	                lists: function(ListService){
+	                	return ListService.getLists();
 	                }
 	            }
 	        }).otherwise({
