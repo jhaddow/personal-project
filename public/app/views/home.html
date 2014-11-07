@@ -1,10 +1,17 @@
+<div class="lists">
+    <div class="user-photo">
+        <img ng-src={{listCtrl.user._json.profile_image_url_https}}>
+    </div>
+    <ul>
+        <li ng-repeat="list in listCtrl.lists" ng-click="listCtrl.getTweets(list.id)">
+            {{list.name}}
+        </li>
+    </ul>
+    <div class="logout">
+        <a class="btn btn-primary" href="/logout" role="button">Log Out</a>
+    </div>
+</div>
 
-<img ng-src={{listCtrl.user.photos[0].value}}>
-<ul>
-	<li ng-repeat = "list in listCtrl.lists" ng-click="listCtrl.getTweets(list.id)">
-		{{list.name}}
-	</li>
-</ul>
- 
-
-<tweet-view ng-repeat="tweet in listCtrl.tweets" tweet-obj = "tweet"></tweet-view>
+<div class="tweets">
+    <tweet-view ng-repeat="tweet in listCtrl.tweets" tweet-obj="tweet"></tweet-view>
+</div>

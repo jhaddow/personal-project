@@ -1,0 +1,97 @@
+body {
+    padding-top: 0px;
+    padding-bottom: 20px;
+    background: hsl(200, 51%, 71%);
+}
+@media (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+}
+.container-narrow > hr {
+    margin: 30px 0;
+}
+.jumbotron {
+    margin-top: 15%;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+    padding: 14px 24px;
+    font-size: 21px;
+}
+.lists {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin-left: 2%;
+    position: fixed;
+    background: #f5f8fa;
+    width: 15%;
+    display: block;
+    align: center;
+}
+.lists > ul {
+    list-style-type: none;
+    padding: 0;
+}
+.lists > ul > li {
+    font-size: 1.2em;
+    margin-left: 5px;
+    border-bottom: 1px solid hsl(205, 25%, 91%);
+}
+.lists > ul > li:hover {
+    background: #8FC2DB;
+}
+.user-photo {
+    display: block;
+    text-align: center;
+    height: 100px;
+    width: 100%;
+}
+.user-photo > img {
+    display: block;
+    margin: 20px auto;
+    height: 72px;
+    width: auto;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.tweets {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin: 2% auto;
+    width: 50%;
+    background: #f5f8fa;
+}
+
+.logout {
+
+ width: 100%;
+ text-align: center;
+ margin-bottom: 5px;
+
+}
+.tweet-box {
+    height: 120px;
+    border-bottom: 1px solid hsl(205, 25%, 91%);
+    padding: 9px 12px;
+    display: block;
+}
+.tweet-box > .profile_pic {
+    margin: 2px;
+    width: 60px;
+    float: left;
+    height: 100%;
+}
+.tweet-box > .profile_pic > img {
+    width: 50px;
+}
+.tweet-box > .tweet-text {
+    margin-left: 5px;
+}
+.clicked {
+    color: hsl(36, 100%, 60%);
+}

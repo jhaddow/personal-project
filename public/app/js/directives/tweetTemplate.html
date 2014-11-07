@@ -1,35 +1,17 @@
-<style>
-	.tweet-box {
-		border: 1px solid black;
-	}
-	.tweet-compose {
-		width: 100%;
-		height: 2.5em;
-		font-size: 13px;
-		padding: 5px;
-		border: 1px solid #ccc;
-		border-radius: 3px;
-		margin-bottom: 1em;
-		box-sizing: border-box;
-	}
-	.clicked {
-		color: yellow;
-	}
-	
-</style>
-
 <div class="tweet-box">
-	<p>{{tweetObj.user.name}} @{{tweetObj.user.screen_name}} - {{timeString}}</p>
-	<p class="tweet-text" ng-bind-html="tweetText"></p>
-	<div class="tweet-btns">
-		<!-- <span class="fa fa-reply"></span> -->
-		<span ng-hide="retweeted" class="fa fa-retweet"></span>
-		<span ng-show="retweeted" class="fa fa-retweet clicked"></span>{{retweet_count}}
-		<span ng-hide="favorited" class="fa fa-star"></span>
-		<span ng-show="favorited" class="fa fa-star clicked"></span>{{favorite_count}}
-	</div>
-	<div ng-show="showReply">
-		<textarea class="tweet-compose" placeholder="Compose new Tweet..."/></textarea>
-	</div>
+    <div class="profile_pic">
+        <img ng-src={{tweetObj.user.profile_image_url_https}}>
+    </div>
+    <div class="tweet-text">
+        <p>{{tweetObj.user.name}} @{{tweetObj.user.screen_name}} - {{timeString}}</p>
+        <p ng-bind-html="tweetText"></p>
+        <div class="tweet-btns">
+            <!-- <span class="fa fa-reply"></span> -->
+            <span ng-click="send_retweet(tweet_id)" ng-hide="retweeted" class="fa fa-retweet"></span>
+            <span ng-show="retweeted" class="fa fa-retweet clicked">{{retweet_count}}</span>
+            <span ng-click="send_favorite(tweet_id)" ng-hide="favorited" class="fa fa-star"></span>
+            <span ng-show="favorited" class="fa fa-star clicked">{{favorite_count}}</span>
+        </div>
+    </div>
 
 </div>
