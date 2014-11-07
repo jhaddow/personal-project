@@ -1,7 +1,7 @@
 (function(){
 	"use-strict";
 	angular
-	    .module('twitterListViewer', ['ngRoute', 'tweetDirective'])
+	    .module('twitterListViewer', ['ngRoute', 'tweetDirective', 'waypointDirective'])
 	    .config(function($routeProvider, $httpProvider) {
 	        $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 	        $httpProvider.interceptors.push('myHttpInterceptor');

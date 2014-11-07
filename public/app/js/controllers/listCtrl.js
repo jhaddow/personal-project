@@ -8,8 +8,10 @@
             vm.listId = '';
             vm.tweets = [];
             vm.getTweets = getTweets;
+            vm.getTweetsByMaxId = getTweetsByMaxId;
+            vm.POS = POS;
 
-            console.log(vm.user);
+           
             getLists();
             function getLists() {
                 return ListService.getLists()
@@ -31,6 +33,19 @@
                             }
                         }
                     });
+            }
+
+            function getTweetsByMaxId(){
+                if(vm.listId){
+                    ListService.getTweetsByMaxId(vm.listId, vm.tweets[vm.tweets.length -1].id)
+                        .then(function(data){
+                           vm.tweets = vm.tweets.concat(data);
+                        });
+                }
+            }
+
+            function POS(){
+                alert("HELLO");
             }
 
 

@@ -1,6 +1,7 @@
 (function() {
     "use-strict";
 
+
     angular
         .module('tweetDirective', ['ngSanitize'])
         .directive('tweetView', function renderTweet() {
@@ -15,8 +16,7 @@
                 controller: TweetCtrl
             };
 
-            function TweetLink(scope, element, attr) {
-                console.log(scope.tweetObj);
+            function TweetLink(scope, element, attr) {                
                 scope.timeString = createTimeString();
                 scope.tweetText = (scope.tweetObj.retweeted_status) ? renderLinks("RT @" + scope.tweetObj.retweeted_status.user.name + " " + scope.tweetObj.retweeted_status.text) : renderLinks(scope.tweetObj.text);
                 scope.retweet_count = scope.tweetObj.retweet_count || '';
@@ -60,7 +60,6 @@
 
                 function send_retweet(tweet_id) {
                     if (!$scope.retweeted) {
-                        console.log(tweet_id);
                         ListService.send_retweet(tweet_id)
                             .then(function(data) {
                                 console.log("got there");
@@ -72,7 +71,6 @@
 
                 function send_favorite(tweet_id) {
                     if (!$scope.favorited) {
-                        console.log(tweet_id);
                         ListService.send_favorite(tweet_id)
                             .then(function(data) {
                                 console.log("got there");

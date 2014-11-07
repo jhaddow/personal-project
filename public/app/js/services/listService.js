@@ -5,9 +5,11 @@
         .service('ListService', function ListService($http, $q) {
             this.getLists = getLists;
             this.getTweets = getTweets;
+            this.getTweetsByMaxId = getTweetsByMaxId;
             this.currentUser = currentUser;
             this.send_retweet = send_retweet;
             this.send_favorite = send_favorite;
+
 
             function getLists() {
                 var deferred = $q.defer();
@@ -21,12 +23,23 @@
 
             function getTweets(list_id, since_id) {
                 var deferred = $q.defer();
-                var endpoint = 'api/list-tweets/' + list_id;
+                var endpoint = '/api/list-tweets/' + list_id;
                 if (since_id) {
                     endpoint = endpoint + '/' + since_id;
                 }
                 $http.get(endpoint)
                     .then(function(response) {
+                        deferred.resolve(response.data);
+                    });
+                return deferred.promise;
+            }
+
+            function getTweetsByMaxId(list_id, max_id) {
+                var deferred = $q.defer();
+                var endpoint = '/api/list-tweets-maxid/' + list_id + '/' + max_id;
+                $http.get(endpoint)
+                    .then(function(response) {
+
                         deferred.resolve(response.data);
                     });
                 return deferred.promise;

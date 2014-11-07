@@ -1,3 +1,4 @@
+"use-strict";
 var express = require('express'),
     session = require('express-session'),
     bodyParser = require('body-parser'),
@@ -49,6 +50,7 @@ app.get('/logout', auth.logout);
 app.get('/api/lists', requireAuth, twitCtrl.getLists);
 app.get('/api/list-tweets/:list_id/:since_id', requireAuth, twitCtrl.getListTweets);
 app.get('/api/list-tweets/:list_id', requireAuth, twitCtrl.getListTweets);
+app.get('/api/list-tweets-maxid/:list_id/:max_id', requireAuth, twitCtrl.getListTweetsByMaxId);
 app.post('/api/retweet/:tweet_id', requireAuth, twitCtrl.retweet);
 app.post('/api/favorite/:tweet_id', requireAuth, twitCtrl.favorite);
 
