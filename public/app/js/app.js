@@ -27,7 +27,7 @@
 	    })
 	    .factory('myHttpInterceptor', function($q, $location) {
 	        return {
-	            'responseError': function(rejection) {
+	            responseError: function(rejection) {
 	                if (rejection.status === 401) {
 	                    $location.path('/');
 	                    return;

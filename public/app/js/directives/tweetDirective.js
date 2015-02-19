@@ -16,7 +16,7 @@
                 controller: TweetCtrl
             };
 
-            function TweetLink(scope, element, attr) {                
+            function TweetLink(scope, element, attr) {
                 scope.timeString = createTimeString();
                 scope.tweetText = (scope.tweetObj.retweeted_status) ? renderLinks("RT @" + scope.tweetObj.retweeted_status.user.name + " " + scope.tweetObj.retweeted_status.text) : renderLinks(scope.tweetObj.text);
                 scope.retweet_count = scope.tweetObj.retweet_count || '';

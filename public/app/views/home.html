@@ -16,5 +16,7 @@
     <tweet-view ng-repeat="tweet in listCtrl.tweets" tweet-obj="tweet"></tweet-view>
 
 </div>
-<div id="way-point" way-point request = "listCtrl.getTweetsByMaxId()"></div>
-<div id="scroll-top" scroll-to-top><span class="fa fa-caret-square-o-up"></span>Back to Top</div>
+<div id="way-point" way-point request="listCtrl.getTweetsByMaxId()"></div>
+<div id="scroll-top" scroll-to-top speed="2000">
+    <a><span class="fa fa-caret-square-o-up"></span>Back to Top</a>
+</div>

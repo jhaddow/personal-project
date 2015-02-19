@@ -10,9 +10,11 @@
 
             function scrollToTopLink(scope, elem, attr) {
                 elem.on('click', function() {
+                    var speed = attr.speed || 600;
+                    console.log(speed);
                     $('html, body').animate({
                         scrollTop: 0
-                    }, 600);
+                    }, speed);
                 });
             }
         });
